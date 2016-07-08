@@ -1,0 +1,52 @@
+@-webkit-keyframes slideintop {
+  from { @include transform(translate3d(0, -$baseline-grid, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@-moz-keyframes slideintop {
+  from { @include transform(translate3d(0, -$baseline-grid, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@-o-keyframes slideintop {
+  from { @include transform(translate3d(0, -$baseline-grid, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@keyframes slideintop {
+  from { @include transform(translate3d(0, -$baseline-grid, 0)) }
+  to { transform: translate3d(0,0,0) }
+}
+
+
+@-webkit-keyframes slideinbottom {
+  from { @include transform(translate3d(0, $baseline-grid, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@-moz-keyframes slideinbottom {
+  from { @include transform(translate3d(0, $baseline-grid, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@-o-keyframes slideinbottom {
+  from { @include transform(translate3d(0, $baseline-grid, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@keyframes slideinbottom {
+  from { transform: translate3d(0, $baseline-grid, 0) }
+  to { transform: translate3d(0,0,0) }
+}
+
+
+@-webkit-keyframes slideinright {
+  from { @include transform(translate3d($baseline-grid, 0, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@-moz-keyframes slideinright {
+  from { @include transform(translate3d($baseline-grid, 0, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@-o-keyframes slideinright {
+  from { @include transform(translate3d($baseline-grid, 0, 0)) }
+  to { @include transform(translate3d(0,0,0)) }
+}
+@keyframes slideinright {
+  from { transform: translate3d($baseline-grid, 0, 0) }
+  to { transform: translate3d(0,0,0) }
+}

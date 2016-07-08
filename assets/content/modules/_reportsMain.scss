@@ -1,0 +1,216 @@
+    .rpt * { padding: 0; margin: 0; border: 0; box-shadow: none; }
+
+    .rpt-page {
+      font: 9pt 'Open Sans', Arial, sans-serif;
+      line-height: 1.4em;
+    }
+    .rpt-page-header {
+      overflow: auto;
+    }
+    .rpt-page-header .rpt-header {
+      float: right;
+      width: auto;
+      margin: 0;
+    }
+    .rpt-logo {
+      float: left;
+      margin: 0 .25in .25in 0;
+    }
+    .rpt-logo .rpt-logo-address {
+      margin: 0;
+    }
+    .rpt-title {
+      margin-bottom: .25em;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: right;
+    }
+    .rpt-subtitle {
+      font-size: 1em;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .rpt p {
+      padding: 0;
+      margin: 0 0 .25in;
+    }
+    .rpt table {
+      width: 100%;
+      margin: 0 0 .5in;
+      border-spacing: 0;
+      border-collapse: collapse;
+      font: 9pt 'Open Sans', Arial, sans-serif;
+    }
+    .rpt th,
+    .rpt td {
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .rpt th { font-weight: bold }
+    .rpt-header th {
+      text-align: right;
+      vertical-align: top;
+      padding-right: 0;
+      padding-left: 16px;
+    }
+
+    .rpt-data {
+      border-bottom: 2px solid #000;
+    }
+    .rpt-data thead th {
+      padding-top: 8px;
+      border-bottom: 2px solid #000;
+      vertical-align: bottom;
+      background: #369;
+      color: #fff;
+    }
+    .rpt-data tbody th {
+      background: #ddd;
+    }
+    .rpt-data .rpt-data-header th {
+      /*padding-top: 12px;*/
+      border-top: 2px solid #000;
+      border-bottom: 1px solid #999;
+    }
+    .rpt-data .rpt-data-footer th {
+      padding-bottom: 12px;
+      border-top: 1px solid #999;
+      border-bottom: 2px solid #000;
+      background: #eee;
+    }
+
+    .rpt .rpt-text { text-align: left }
+    .rpt .rpt-number {
+      width: .5in;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .rpt .rpt-boolean {
+      width: .5in;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .rpt .rpt-currency {
+      width: 1in;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .rpt-total th,
+    .rpt-total td {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+.unit-out {
+  background-color: #fffce7;
+}
+
+
+.rpt-data tbody tr th {
+    border-right: 1px solid #d8dde6;
+    position: relative;
+    z-index: 1
+}
+
+.rpt-data tbody tr:not(:first-child) th {
+    border-top: 1px solid #d8dde6;
+    margin-bottom: -1px
+}
+
+.rpt-data tbody tr:nth-child(odd) th {
+    background-color: white
+}
+
+.rpt-data tbody tr:nth-child(even) th {
+    background-color: #f7f9fe
+}
+
+.rpt-data tbody tr:last-child th {
+    height: 28px
+}
+
+.rpt-data tbody td.first {
+  background-color: #436ea4;
+}
+
+.column-header {
+    border-right: 1px solid #d8dde6;
+    border-bottom: 1px solid #d8dde6;
+}
+
+
+.rpt-data tbody td.data_heat_1 {
+    background-color: #b7d7f1;
+    color: #747d94
+}
+
+.rpt-data tbody td.data_heat_2 {
+    background-color: #97c8eb;
+    color: white
+}
+
+.rpt-data tbody td.data_heat_3 {
+    background-color: #62afe9;
+    color: white
+}
+
+.rpt-data tbody td.data_heat_4 {
+    background-color: #2b93d5;
+    color: white
+}
+
+.rpt-data tbody td.data_heat_5 {
+    background-color: #4c7cb8;
+    color: white
+}
+
+.rpt-data tbody td.zero_bucket {
+    background-color: #436ea4;
+    color: white
+}
+
+.rpt-data tbody td.data_heat_0 {
+    background-color: #edf4fa;
+    color: #747d94
+}
+
+
+.percent::after {
+      content: "%";
+}
+
+.dataHeader {
+  min-width: 96px;
+}
+
+    @page { margin: .5in }
+    @media screen {
+      body {
+        background: #eff0f4;
+      }
+      .rpt-preview {
+        background: white;
+        color: black;
+        width: 11.75in;
+        min-height: 11in;
+        margin: .5in auto;
+        box-shadow: 0 0 .5in #000;
+        border-right: .5in solid #fff;
+        overflow: hidden;
+      }
+      .rpt-page {
+        width: 11in;
+        padding: .5in;
+        overflow: hidden;
+      }
+    }
+    @media print {
+      * { -webkit-print-color-adjust: exact }
+      thead { display: table-header-group }
+      .rpt-page {
+        width: 7.5in;
+        overflow: hidden;
+      }
+    }

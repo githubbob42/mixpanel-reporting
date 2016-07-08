@@ -1,0 +1,244 @@
+/* Base container styles
+-------------------------------------------------- */
+
+.fill-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+article, nav, header, footer, section, aside, main {
+	display: block;
+}
+article {
+  @extend .fill-container;
+
+  background: $bg-color;
+  color: $bg-contrast-color;
+
+	nav, header, footer, section {
+		position: absolute;
+		left: 0;
+		right: 0;
+    @include box-sizing(border-box);
+	}
+	header {
+    top: 0;
+		height: $baseline-grid;
+    line-height: $baseline-grid;
+
+    background: $key-color;
+    color: $key-contrast-color;
+    box-shadow: 0 2px 8px rgba(0,0,0,.5);
+    z-index: 2; // make sure drop shadow is over the content
+
+    h1 {
+      position: absolute;
+      text-align: center;
+    }
+    a:active,
+    label:active {
+      background: rgba(255,255,255,.1);
+    }
+	}
+  nav {
+    top: 0;
+    height: $baseline-grid;
+    line-height: $baseline-grid;
+
+    background: $toolbar-bg-color;
+    color: $bg-contrast-color;
+    box-shadow: 0 2px 8px rgba(0,0,0,.5);
+    z-index: 1; // make sure drop shadow is over the content
+  }
+	footer {
+    top: 100%;
+    height: 0;
+    margin-top: -$baseline-grid;
+    z-index: 1; // make sure footer is over the content
+	}
+	section {
+    top: 0;
+    bottom: 0;
+		overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    h1 {
+      padding: 0 10px;
+      line-height: $baseline-grid - 2;
+      border-bottom: 2px solid #000;
+    }
+	}
+  nav ~ section,
+  header ~ nav,
+  header ~ section {
+    top: $baseline-grid;
+  }
+  header ~ nav ~ section {
+    top: $baseline-grid * 2;
+  }
+  footer ~ section {
+    padding-bottom: $baseline-grid * 2.5;
+  }
+}
+
+.split-section {
+  aside, main {
+    @include box-sizing(border-box);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  aside {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: lighten($bg-contrast-color, 25%);
+    color: $key-contrast-color;
+    border-right: 2px solid lighten($bg-contrast-color, 50%);
+    width: $baseline-grid * 5;
+  }
+  main {
+    @extend .fill-container;
+  }
+  aside ~ main {
+    left: $baseline-grid * 5;
+  }
+}
+.split-section--navbar {
+  aside {
+    width: $baseline-grid * 2;
+  }
+  aside ~ main {
+    left: $baseline-grid * 2;
+  }
+}
+
+.transition > article > section {
+  @include animation(slideintop .35s, fadein .75s);
+}
+
+.menu {
+  font-weight: bold;
+
+  .menu-item-selection {
+    display: none;
+  }
+
+  .menu-item {
+    display: block;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0 1em 0 1.25em;
+    height: $baseline-grid * 1.5;
+    line-height: $baseline-grid * 1.5;
+  }
+  .menu-item--active {
+    background: $key-contrast-color;
+    color: $bg-contrast-color;
+    box-shadow: 0 0 1em rgba(0,0,0,.5);
+    @include transition(background .35s);
+  }
+  .menu {
+    .menu-item {
+      background: rgba(255, 255, 255, .1);
+      margin-left: 1em;
+      box-shadow: 0 .25em .75em rgba(0,0,0,.25);
+      border-bottom: 1px solid #333;
+    }
+    .menu-item--active {
+      background: $key-contrast-color;
+      box-shadow: 0 0 1em rgba(0,0,0,.5);
+    }
+  }
+}
+
+.empty {
+  @extend .fill-container;
+  @include display(flex);
+  @include align-items(center);
+  @include align-content(justify);
+  @include animation(slideinbottom .5s, fadein .75s);
+
+  .empty-title {
+    max-width: 80%;
+    margin: -4em auto 0;
+    font-size: 4em;
+    font-weight: bold;
+    color: darken($bg-color, 15%);
+    text-shadow: 1px 1px #fff;
+    text-align: center;
+  }
+}
+.empty-text {
+  font-weight: bold;
+  color: darken($bg-color, 35%);
+}
+p.empty-text {
+  padding: 0 10px 1em;
+}
+
+.empty-pointer {
+  cursor: pointer;
+  position: absolute;
+  right: $baseline-grid * 2.75;
+  bottom: $baseline-grid * 2.5;
+  font-size: 2em;
+  font-weight: bold;
+  color: darken($bg-color, 40%);
+  text-shadow: 1px 1px #fff;
+  background: darken($bg-color, 5%);
+  border-radius: 1.25em;
+  padding: .5em .75em;
+  border: 4px solid darken($bg-color, 40%);
+  box-shadow: 0 0 .5em rgba(0,0,0,.25);
+  @include animation(slideinbottom 1s, fadein 2s);
+
+  &:active {
+    background: $active-color;
+    color: $key-contrast-color;
+    border-color: $key-contrast-color;
+    text-shadow: none;
+  }
+
+  &:after {
+    @extend .icon-base;
+    content: "\e05e";
+    position: absolute;
+    top: 100%;
+    right: -1em;
+  }
+}
+
+@media print {
+  header,
+  footer {
+    display: none;
+  }
+
+  body,
+  article,
+  section,
+  .modal {
+    position: relative !important;
+    background: #fff !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    top: 0 !important;
+  }
+}
+
+.mask {
+  @extend .fill-container;
+
+  display: none;
+  z-index: 3;
+  background: rgba(0,0,0,.1);
+}
+.mask--apply {
+  display: block;
+}

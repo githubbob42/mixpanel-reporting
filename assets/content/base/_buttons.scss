@@ -1,0 +1,358 @@
+/* General button styles
+-------------------------------------------------- */
+
+.report-button {
+  position: relative;
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 0;
+  font-family: $interface-font;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #333;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  vertical-align: top;
+  cursor: pointer;
+  @include linear-gradient(#f8f8f8, #d4d4d4);
+  border: 1px solid #000;
+  border: 1px solid rgba(0, 0, 0, .3);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .4), 0 1px 2px rgba(0, 0, 0, .05);
+  @extend .unselectable;
+  @include box-sizing(border-box);
+
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: 0 0 .25em $active-color;
+  }
+}
+
+.button-container {
+  position: relative;  
+}
+
+.button-replacement{
+  position: relative;
+  display: inline-block;
+  padding: 12px 12px;
+  margin: 0;
+  font-weight: bold;
+  line-height: 26px;
+  color: #333;
+  text-align: center;
+  vertical-align: top;
+  font-size: 18px;
+}
+
+
+/* Button modifiers
+-------------------------------------------------- */
+
+/* Overriding styles for buttons with modifiers  */
+.button-main,
+.button-positive,
+.button-negative,
+.button-inverse {
+  background-image: none;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+}
+
+/* Main button */
+.button-main {
+  @include linear-gradient(#1eafe7, #1a97c8);
+  border: 1px solid #117aaa;
+}
+
+/* Positive button  */
+.button-positive {
+  @include linear-gradient(#34ba15, #2da012);
+  border: 1px solid #278f0f;
+}
+
+/* Negative button  */
+.button-negative {
+  @include linear-gradient(#e71e1e, #c71a1a);
+  border: 1px solid #b51a1a;
+}
+
+/* Inverse button  */
+.button-inverse {
+  @include linear-gradient(#444444, #222222);
+  border: 1px solid #363636;
+}
+
+/* Active state for buttons with modifiers */
+.button-main:active,
+.button-positive:active,
+.button-negative:active {
+  color: #fff;
+}
+.button-main:active {
+  background-color: #0876b1;
+}
+.button-positive:active {
+  background-color: #298f11;
+}
+.button-negative:active {
+  background-color: #b21a1a;
+}
+.button-inverse:active {
+  background-color: #363636;
+}
+
+/* Block level buttons (full width buttons) */
+.button-block {
+  width: 100%;
+  display: block;
+  padding: 11px 0 13px;
+  margin-bottom: 10px;
+  @include box-sizing(border-box);
+}
+
+/* Active */
+.report-button:active, .button--active, .button.activity {
+  padding-top: 5px;
+  padding-bottom: 3px;
+  background-image: none;
+  box-shadow: inset 0 3px 3px rgba(0, 0, 0, .2);
+}
+
+/* Active state for block level buttons */
+.button-block:active {
+  padding: 12px 0;
+}
+
+.report-button:disabled, .button:active:disabled, .button--disabled {
+  color: rgb(109, 109, 109);
+  padding: 7px 12px;
+  background-color: #ccc;
+  border-color: #aaa;
+  background-image: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .4), 0 1px 2px rgba(0, 0, 0, .05);
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.report-button.activity {
+  @include animation(spin 1s infinite);
+}
+
+
+/* Counts in buttons
+-------------------------------------------------- */
+
+/* Generic styles for all counts within buttons */
+.report-button .count {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-right: -4px;
+  margin-left: 4px;
+  text-shadow: none;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, .2);
+  box-shadow: inset 0 1px 1px -1px #000000, 0 1px 1px -1px #fff;
+}
+
+/* Position counts within block level buttons
+   Note: These are absolutely positioned so that text of button isn't "pushed" by count and always
+   stays at true center of button */
+.button-block .count {
+  position: absolute;
+  right: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-right: 10px;
+}
+
+/* button groups */
+.user-actions {
+  direction: rtl;
+  padding: 0 0 5px;
+  margin: $baseline-grid * .75 0 $baseline-grid;
+  background: darken($bg-color, 10%);
+  border-radius: 0 0 3px 3px;
+  border-top: 1px solid #ccc;
+}
+
+.button-group {
+  @include display(flex);
+  @include flex-direction(row);
+}
+
+.button-group > .button {
+  display: block;
+  position: relative;
+  @include border-radius(0);
+  @include flex(1);
+  span {
+    width: 100%;
+  }
+}
+
+.button-group > .button + .button {
+  margin-left: -1px;
+}
+
+.button-group > .button:first-child {
+  margin-left: 0;
+  @include border-left-radius(3px);
+}
+
+.button-group > .button:last-child {
+  @include border-right-radius(3px);
+}
+
+
+
+$button-size: $baseline-grid * 1.5;
+
+.button-round {
+
+  position: relative;
+  float: right;
+  margin: -$baseline-grid $baseline-grid * .75 0 $baseline-grid * .25;
+  @include transform(translate3d(0, 0, 0));
+  @include animation(slideinbottom .5s, fadein .75s);
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 78px;
+    height: 78px;
+    border-radius: 100%;
+    background: #fff;
+    margin: -6px 0 0 -6px;
+    box-shadow: 0 1px 11px 2px rgba(0,0,0,.4), inset 0 0 1px 1px #777;
+
+    .user-actions & {
+      box-shadow: inset 0 1px rgba(0,0,0,.25);
+    }
+  }
+  .report-button {
+    float: right;
+    font-size: 14px;
+    line-height: $button-size / ($button-size - 14);
+    border-radius: 100%;
+    width: $button-size;
+    height: $button-size;
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px #fff;
+
+    span[data-icon] {
+      line-height: $baseline-grid + 2;
+    }
+  }
+}
+.button-round--active {
+  .report-button {
+    background: #fff;
+    border: none;
+  }
+  &:before {
+    background: none;
+    width: $button-size;
+    height: $button-size;
+    margin: 0;
+  }
+  .toggle-icon:before {
+    color: $active-color;
+  }
+}
+.button-round-group {
+  float: right;
+  height: $button-size;
+  border-radius: $baseline-grid;
+  margin: -$baseline-grid $baseline-grid * .75 0 $baseline-grid * .25;
+  background: rgba(255,255,255,.8);
+  box-shadow: 0 0 1em rgba(0,0,0,.5);
+  @include transform(translate3d(0, 0, 0));
+  @include animation(slideinbottom .5s, fadein .75s);
+
+  .button-round {
+    margin-top: 0;
+    @include animation(slideinright .5s, fadein .75s);
+
+    &:first-child {
+      margin-right: 0;
+      @include animation(none);
+    }
+    &:last-child {
+      margin-left: 0;
+    }
+  }
+}
+.button-dialog {
+  position: absolute;
+  left: 50%;
+  bottom: 150%;
+  width: 250px;
+  padding: 0;
+  margin-left: -125px;
+  background: rgba(0,0,0,.75);
+  border-radius: 22px;
+  box-shadow: 0 -4px 8px rgba(0,0,0,.35);
+  @include animation(slideinbottom .35s, fadein .35s);
+
+  ul {
+    margin: 15px;
+    background: #fff;
+    border-radius: 12px;
+    max-height: 335px; // enough for 7 records to display at once
+    overflow: auto;
+    box-shadow: inset 0 0 4px rgba(0,0,0,.5);
+  }
+  li {
+    list-style-type: none;
+    line-height: $baseline-grid;
+    padding: 0 1em;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+
+    &:last-of-type {
+      border: none;
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    bottom: -20px;
+    margin-left: -20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid rgba(0,0,0,.75);
+  }
+}
+
+.button-flag {
+  position: absolute;
+  left: 100%;
+}
+
+.header-button {
+  position: relative;
+  float: right;
+  display: block;
+  font-family: $interface-font;
+  min-width: $baseline-grid;
+  height: $baseline-grid;
+  line-height: $baseline-grid;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0 1em;
+  color: inherit;
+  font-size: 18px;
+}
+.header-button-icon {
+  vertical-align: middle;
+}

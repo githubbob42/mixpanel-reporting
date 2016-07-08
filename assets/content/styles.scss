@@ -1,0 +1,43 @@
+﻿/*csslint fallback-colors: false, font-sizes: false, unique-headings: false, qualified-headings: false, adjoining-classes: false */
+
+$baseline-grid: 44px;
+
+/**
+ * Generic utility styles etc.
+ */
+@import "generic/mixins";
+
+/**
+ * vendor styles.
+ */
+/**
+ * Base styles; unclassed HTML elements etc.
+ */
+@import "base/reset";
+@import "base/colors";
+@import "base/font";
+@import "base/main";
+@import "base/containers";
+@import "base/buttons";
+
+
+/**
+ * Objects and abstractions
+ */
+@import "objects/popovers";
+@import "objects/modals";
+
+/**
+ * keyframe animations
+ */
+@import "animations/spin";
+@import "animations/fadein";
+@import "animations/push";
+@import "animations/slidein";
+
+/**
+ * Style trumps; helper and brand classes and specific modules classes
+ */
+@import "modules/ticketMain";
+@import "modules/ticketReport";
+@import "modules/reportsMain";

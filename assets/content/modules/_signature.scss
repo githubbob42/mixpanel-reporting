@@ -1,0 +1,20 @@
+.signature-pad {
+  margin: $baseline-grid * 2 10%;
+  background-color:white;
+  border-radius: 4px;
+}
+
+.signature-placeholder {
+  position: absolute;
+  bottom: 0;
+}
+
+.signature-placeholder:after {
+  content: ':';
+}
+
+.signature-container {
+  min-width: 100%;
+  min-height: 60%;
+  color:darkblue;
+}

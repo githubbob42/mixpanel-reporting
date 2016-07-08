@@ -1,0 +1,23 @@
+<article class="modal modal--active">
+  <header>
+    <h1 data-bind="text: title"></h1>
+    <a class="modal-close" data-bind="href: returnUrl()"></a>
+  </header>
+
+  <section class="report-preview">
+
+    <!-- ko ifnot: errorMessage -->
+    <div class="report" data-bind="retention: data">
+    </div>
+    <!-- /ko -->
+
+    <!-- ko if: errorMessage -->
+    <div class="errorMessage" >
+      <div class="error">Error</div>
+      <div data-bind="text: errorMessage">
+      </div>
+    </div>
+    <!-- /ko -->
+
+  </section>
+</article>

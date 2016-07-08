@@ -1,0 +1,19 @@
+/* Spin Animation (for loading)
+-------------------------------------------------- */
+
+@-webkit-keyframes spin {
+  from { @include transform(rotate(0deg)); }
+  to { @include transform(rotate(360deg)); }
+}
+@-moz-keyframes spin {
+  from { @include transform(rotate(0deg)); }
+  to { @include transform(rotate(360deg)); }
+}
+@-o-keyframes spin {
+  from { @include transform(rotate(0deg)); }
+  to { @include transform(rotate(360deg)); }
+}
+@keyframes spin {
+  from { @include transform(rotate(0deg)); }
+  to { @include transform(rotate(360deg)); }
+}

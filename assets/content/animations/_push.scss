@@ -1,0 +1,19 @@
+/* Spin Animation (for loading)
+-------------------------------------------------- */
+
+@-webkit-keyframes push {
+  from { @include transform(scale3d(.5,.5,1)); }
+  to { @include transform(scale3d(1.1,1.1,1)); }
+}
+@-moz-keyframes push {
+  from { @include transform(scale3d(.5,.5,1)); }
+  to { @include transform(scale3d(1.1,1.1,1)); }
+}
+@-o-keyframes push {
+  from { @include transform(scale3d(.5,.5,1)); }
+  to { @include transform(scale3d(1.1,1.1,1)); }
+}
+@keyframes push {
+  from { @include transform(scale3d(.5,.5,1)); }
+  to { @include transform(scale3d(1.1,1.1,1)); }
+}

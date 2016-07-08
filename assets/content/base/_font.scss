@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'icomoon';
+  src:url('fonts/icomoon/icomoon.eot');
+  src:url('fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/icomoon/icomoon.woff') format('woff'),
+    url('fonts/icomoon/icomoon.ttf') format('truetype'),
+    url('fonts/icomoon/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+.icon-base {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+div[data-icon]:before,
+span[data-icon]:before {
+  @extend .icon-base;
+  line-height: 1;
+}
+.spin-target:before {
+  display: block; 
+  margin-top: 5px; 
+}
+
+.spin:before {
+  @include animation(spin 2s infinite linear);
+}
+
+/* Extra font styles
+-------------------------------------------------- */
+$interface-font: HelveticaNeue-condensed, sans-serif;
+$data-font: Arial, sans-serif;
+
+.icon-large {
+  font-size: 2em;
+}
+.icon-medium {
+  font-size: 1.5em;
+}
+@mixin icon-button($icon) {
+  display: inline-block;
+  width: $baseline-grid;
+  height: $baseline-grid;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:before {
+    @extend .icon-base;
+    content: $icon;
+    font-size: $baseline-grid / 2;
+    line-height: $baseline-grid;
+  }
+}
+
+.small {
+  font-size: 10px;  
+}
+.button,
+.medium {
+  font-size: 18px;
+}
+.large {
+  font-size: 20px;
+}
+.high-contrast {
+  color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $interface-font;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  @include box-sizing(border-box);
+}
+h1 {
+  font-size: 1.5em;
+}

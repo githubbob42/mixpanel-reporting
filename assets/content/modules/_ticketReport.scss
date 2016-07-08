@@ -1,0 +1,67 @@
+
+.reportselector {
+	padding: 0 1em;
+
+	.one-half {
+		width: 49%;
+	}
+}
+.report-options {
+	box-sizing: border-box;
+	margin: 10px;
+	width: 100%;
+
+  .icon-main {
+    float: right;
+    margin: -.125em -.25em;
+  }
+}
+
+.report-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100
+}
+
+.report-templates {
+  input {
+    display: none;
+  }
+  input:checked ~ span {
+    @extend .menu-item--active;
+  }
+}
+
+.modal section .modal {
+  border: none;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  header {
+    display: none;
+  }
+  section {
+    top: 0;
+  }
+  .add-signature {
+  	position: relative;
+  }
+  .add-signature.modal--active {
+  	position: absolute;
+  }
+}
+
+
+
+@media screen {
+	.report-preview {
+		.signature {
+			box-shadow: 0 0 10px 2px $active-color;
+			@include border-radius (6px);
+		}
+	}
+}

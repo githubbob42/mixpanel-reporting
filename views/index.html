@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AlpineReporting (Mimosa)</title>
+    <link rel="stylesheet" href="/content/styles.css" />
+  </head>
+  <body>
+
+    <p>Welcome to Mixpanel Reporting</p>
+
+    <div id="applicationHost"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app/reload-client.js"></script>
+
+    <script>
+        // var xhr = new XMLHttpRequest();
+        // xhr.open('POST', '/login', false);
+        // xhr.send(null);
+
+        // if(xhr.status === 200) {
+        //   var authData = JSON.parse(xhr.responseText)
+        //   window.sessionId = authData.access_token;
+        //   window.instanceUrl = authData.instance_url;
+        //   var idstuff = authData.id.split('/');
+        //   window.userId = idstuff.slice(-1)[0];
+        //   window.organizationId = idstuff.slice(-2)[0];
+        //   window.fxNamespace = 'FX5';
+        // }
+    </script>
+
+    <script>
+        // xhr = new XMLHttpRequest();
+        // xhr.open('GET', '/soap/ajax/29.0/connection.js', false);
+        // xhr.send(null);
+
+        // if(xhr.status === 200) {
+        //   // run the connection.js code (e.g. set window.sforce, etc)
+        //   eval(xhr.responseText);
+        // }
+    </script>
+
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.css" />
+
+    <script>
+        // sforce.connection.sessionId = window.sessionId; //required
+
+        window.user = {
+            "language": "en_US",
+            "locale": "en_US",
+            "currency": "USD",
+            "info": {
+                "userType": "Standard",
+                "userName": "broth@mobileteam.com",
+                "usercurrency": "USD",
+                "timeZoneOffset": -300,
+                "timeZoneId": "America/Chicago",
+                "timeZone": "Central Standard Time",
+                "profileId": "00ei00000014tIyAAI",
+                "phone": null,
+                "organizationName": "Liquid Frameworks (Partner Main)",
+                "organizationId": "00Di0000000el2BEAQ",
+                "officeName": null,
+                "officeId": null,
+                "name": "bob console (MT)",
+                "locale": "en_US",
+                "lastName": "console (MT)",
+                "language": "en_US",
+                "isMultiCurrencyOrganization": true,
+                "id": "005i0000002XxFVAA0", // broth@mobileteam.com
+                "firstName": "bob",
+                "email": "broth@liquidframeworks.com"
+            }
+        };
+
+        window.fxNamespacePrefix = '';
+        window.fxNamespace = 'FX5'; //'{!namespaceWithoutUnderscores}';
+
+        if (window.fxNamespace){
+            window.fxNamespacePrefix = window.fxNamespace + '__';
+        }
+
+        window.mixPanelId = '51afb48b7ed3d808053df292b1ab6012';
+    </script>
+
+
+    <script src="/vendor/require/require.js" data-main="app/main.js"></script>
+
+  </body>
+</html>

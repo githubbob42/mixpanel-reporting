@@ -1,0 +1,141 @@
+/* Modals
+-------------------------------------------------- */
+.modal {
+  @extend .fill-container;
+  overflow: hidden;
+  border: 10px solid #777;
+  opacity: 0;
+  background-color: $bg-color;
+  @include transform(translate3d(0, 100%, 0));
+  -webkit-transition:  -webkit-transform 0.25s ease-in-out, opacity 1ms .25s;
+     -moz-transition:     -moz-transform 0.25s ease-in-out, opacity 1ms .25s;
+       -o-transition:       -o-transform 0.25s ease-in-out, opacity 1ms .25s;
+          transition:          transform 0.25s ease-in-out, opacity 1ms .25s;  
+  z-index: 1;
+}
+.modal .modal {
+  top: -10px;
+  right: -10px;
+  left: -10px;
+}
+
+
+/* Modal - When active
+-------------------------------------------------- */
+.modal--active {
+  opacity: 1;
+  -webkit-transition:  -webkit-transform 0.25s ease-in-out;
+     -moz-transition:     -moz-transform 0.25s ease-in-out;
+       -o-transition:       -o-transform 0.25s ease-in-out;
+          transition:          transform 0.25s ease-in-out;  
+  @include transform(translate3d(0, 0, 0));
+}
+
+.modal-close {
+  @include icon-button("\e050");
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.modal-back {
+  @include icon-button("\e061");
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modalBlockout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    
+    pointer-events: auto;
+    
+    -webkit-backface-visibility: hidden;
+    
+    -webkit-transition: opacity 0.1s linear; 
+               -moz-transition: opacity 0.1s linear; 
+               -o-transition: opacity 0.1s linear;
+               transition: opacity 0.1s linear; 
+}
+
+.modalHost {
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    opacity: 0;
+    
+    -webkit-backface-visibility: hidden;
+
+    -webkit-transition: opacity 0.1s linear; 
+               -moz-transition: opacity 0.1s linear; 
+               -o-transition: opacity 0.1s linear;
+               transition: opacity 0.1s linear;
+}
+
+.messageBox {
+  background-color: white;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  width: 550px;
+  padding: 1em 2em;
+  text-align: center;
+}
+.messageBox > .modal-header {
+  padding: .5em 0;
+  font: 300 20px $interface-font;
+  text-transform: uppercase;
+}
+.messageBox > .modal-body {
+  padding: 1em 0;
+  font: 300 18px $interface-font;
+}
+.modal-footer {
+  text-align:center;  
+}
+.messageBox button {
+  min-height: $baseline-grid * 1.5;
+  min-width: $baseline-grid * 4;
+  margin: 1em 2em;
+}
+.messageBox em {
+  background: lighten($active-color, 50%);
+  padding-left: .5em;
+  padding-right: .5em;
+  margin-left: .25em;
+  margin-right: .25em;
+  display: inline-block;
+  border-radius: 1em;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+.durandal-view-404 {
+    color: red;
+    margin: 8px 0;
+    padding: 8px;
+
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
