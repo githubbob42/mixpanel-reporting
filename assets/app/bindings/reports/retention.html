@@ -1,34 +1,27 @@
-<div class="rpt rpt-preview">
-  <div class="rpt-page">
-
-      <table class="rpt-data">
-      <thead>
-        <tr class="rpt-data-header">
-          <th data-bind="attr: { colspan: maxCounts + 2 }">Retention Report for TicketItemAdded event</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="rpt-data-header">
-          <th class="rpt-text">Date</th>
-          <th class="rpt-text">People</th>
-          <th class="rpt-boolean unit-out"> &lt; 1 day </th>
-        <!-- ko foreach: headers -->
-          <th class="rpt-boolean" data-bind="text: $data"></th>
-        <!-- /ko -->
-        </tr>
-      <!-- ko foreach: dates -->
-        <tr>
-          <th class="rpt-text dataHeader" data-bind="text: date"></th>
-          <th class="rpt-text" data-bind="text: first"></th>
-        <!-- ko foreach: countsCalced -->
-          <td class="rpt-boolean percent" data-bind="text: $data, css: {'zero_bucket': $index() === 0, 'data_heat_0': $data === '0.00' }"></td>
-        <!-- /ko -->
-        </tr>
-      <!-- /ko -->
-      </tbody>
-    </table>
-
-  </div>
-</div>
-
+<table class="rpt-data">
+<thead>
+  <tr class="rpt-data-header">
+    <th data-bind="attr: { colspan: maxCounts + 2 }">Retention Report for TicketItemAdded event</th>
+  </tr>
+</thead>
+<tbody>
+  <tr class="rpt-data-header">
+    <th class="rpt-text">Date</th>
+    <th class="rpt-text">People</th>
+    <th class="rpt-boolean unit-out"> &lt; 1 day </th>
+  <!-- ko foreach: headers -->
+    <th class="rpt-boolean unit-out" data-bind="text: $data"></th>
+  <!-- /ko -->
+  </tr>
+<!-- ko foreach: dates -->
+  <tr>
+    <th class="rpt-text dataHeader" data-bind="text: date"></th>
+    <th class="rpt-text" data-bind="text: first"></th>
+  <!-- ko foreach: countsCalced -->
+    <td class="rpt-boolean percent" data-bind="text: $data, css: {'zero_bucket': $index() === 0, 'data_heat_0': $data === '0.00' }"></td>
+  <!-- /ko -->
+  </tr>
+<!-- /ko -->
+</tbody>
+</table>
 

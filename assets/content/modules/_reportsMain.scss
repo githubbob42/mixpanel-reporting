@@ -57,7 +57,7 @@
     }
 
     .rpt-data {
-      border-bottom: 2px solid #000;
+      // border-bottom: 2px solid #000;
     }
     .rpt-data thead th {
       padding-top: 8px;
@@ -103,10 +103,10 @@
       white-space: nowrap;
     }
 
-.unit-out {
+
+.rpt-data .rpt-data-header th.unit-out {
   background-color: #fffce7;
 }
-
 
 .rpt-data tbody tr th {
     border-right: 1px solid #d8dde6;
@@ -185,32 +185,46 @@
   min-width: 96px;
 }
 
-    @page { margin: .5in }
-    @media screen {
-      body {
-        background: #eff0f4;
-      }
-      .rpt-preview {
-        background: white;
-        color: black;
-        width: 11.75in;
-        min-height: 11in;
-        margin: .5in auto;
-        box-shadow: 0 0 .5in #000;
-        border-right: .5in solid #fff;
-        overflow: hidden;
-      }
-      .rpt-page {
-        width: 11in;
-        padding: .5in;
-        overflow: hidden;
-      }
-    }
-    @media print {
-      * { -webkit-print-color-adjust: exact }
-      thead { display: table-header-group }
-      .rpt-page {
-        width: 7.5in;
-        overflow: hidden;
-      }
-    }
+.report {
+  background-color: #fff;
+  margin-bottom: 15px;
+
+  .rpt-data {
+    box-shadow: 5px 5px 0.25in #000;
+  }
+
+  svg {
+    box-shadow: 5px 5px 0.25in #000;
+    margin-bottom: 15px;
+  }
+}
+
+@page { margin: .5in }
+@media screen {
+  body {
+    background: #eff0f4;
+  }
+  .rpt-preview {
+    background: white;
+    color: black;
+    width: 11.75in;
+    min-height: 7in;
+    margin: .5in auto;
+    box-shadow: 0 0 .5in #000;
+    border-right: .5in solid #fff;
+    overflow: hidden;
+  }
+  .rpt-page {
+    width: 11in;
+    padding: .5in;
+    overflow: hidden;
+  }
+}
+@media print {
+  * { -webkit-print-color-adjust: exact }
+  thead { display: table-header-group }
+  .rpt-page {
+    width: 7.5in;
+    overflow: hidden;
+  }
+}

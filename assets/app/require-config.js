@@ -1,7 +1,7 @@
 require.config({
     paths: {
         'jquery': '../vendor/jquery-1.10.2.min',
-        'knockout': '../vendor/knockout-3.0.0',
+        'knockout': '../vendor/knockout-3.3.0',
         'durandal':'../vendor/durandal',
         'plugins' : '../vendor/durandal/plugins',
         'text': '../vendor/require/text',

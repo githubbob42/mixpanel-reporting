@@ -8,6 +8,7 @@ define(function (require) {
 				require('./href'),
 				require('./delegated-events'),
 				require('./reports/index'),
+				require('./googleChart'),
 				require('./init-subject-accessibility')
 			);
 		}

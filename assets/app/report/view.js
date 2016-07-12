@@ -13,6 +13,9 @@ define(function (require) {
   function ReportViewModel() {
     ko.utils.extend(this, {
         data: ko.observable(),
+        segmentationData1: ko.observable(),
+        segmentationData2: ko.observable(),
+        segmentationData3: ko.observable(),
         report: ko.observable(),
         templateData: {},
         title: ko.observable(),
@@ -51,21 +54,51 @@ define(function (require) {
     };
   }
 
-  ReportViewModel.prototype.activate = function(routeInfo) {
-// console.log(' >>>> ReportViewModel.prototype.activate ', routeInfo);
+  function calculateHeatMap() {
+  }
 
+  function googlifyData( event, data) {
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn('date', event);
+    dataTable.addColumn('number', 'Counts');
+    var dataRows = data.data.series.map(function(date) {
+      return [new Date(date), data.data.values[event][date]];
+    });
+    dataTable.addRows(dataRows);
+
+      var options = {
+        title: event,
+        width:1000, height:440,
+        hAxis: {title: "", format:'MMM dd'},
+        vAxis: {title: "Counts", viewWindow: {min: 0}}
+      }
+
+    return {data: dataTable, options: options};
+  }
+
+  ReportViewModel.prototype.activate = function(routeInfo) {
     this.title("Reports for " + routeInfo.orgName);
     this.returnUrl(location.protocol + '//' + location.host + '/' + routeInfo.id);
 
     var self = this;
-    return api.getRetentionData(routeInfo)
-      .catch(function (err) {
-console.log(' >>>> ReportViewModel.prototype.activate api.getRetentionData catch', err);
+    return $.when(
+        api.getRetentionData(routeInfo).then(arrayifyData),
+        api.getSegmentData({orgName: routeInfo.orgName, event: 'TicketAddedToJob'}).then(googlifyData.bind(self, 'TicketAddedToJob')),
+        api.getSegmentData({orgName: routeInfo.orgName, event: 'JobCreated'}).then(googlifyData.bind(self, 'JobCreated')),
+        api.getSegmentData({orgName: routeInfo.orgName, event: 'QuoteCreated'}).then(googlifyData.bind(self, 'QuoteCreated'))
+      )
+      .done(function (retentionData, segData, segDataJobCreated, segDataQuoteCreated) {
+          self.data(retentionData);
+          self.segmentationData1(segData);
+          self.segmentationData2(segDataJobCreated);
+          self.segmentationData3(segDataQuoteCreated);
+        })
+      .fail(function (err) {
+        console.log(' >>>> ReportViewModel.prototype.activate api.getRetentionData catch', err);
         self.errorMessage(err.responseText);
         return;
-      })
-      .then(arrayifyData)
-      .then(this.data);
+      });
+
   };
 
   // ReportViewModel.prototype.displayVersion = api.displayVersion;

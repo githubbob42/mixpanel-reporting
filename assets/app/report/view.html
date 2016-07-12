@@ -6,18 +6,32 @@
 
   <section class="report-preview">
 
-    <!-- ko ifnot: errorMessage -->
-    <div class="report" data-bind="retention: data">
-    </div>
-    <!-- /ko -->
-
-    <!-- ko if: errorMessage -->
+  <!-- ko if: errorMessage -->
     <div class="errorMessage" >
       <div class="error">Error</div>
       <div data-bind="text: errorMessage">
       </div>
     </div>
-    <!-- /ko -->
+  <!-- /ko -->
+
+  <!-- ko ifnot: errorMessage -->
+    <div class="rpt rpt-preview">
+      <div class="rpt-page">
+        <div class="report" data-bind="gLineChart: segmentationData1">
+        </div>
+
+        <div class="report" data-bind="gLineChart: segmentationData2">
+        </div>
+
+        <div class="report" data-bind="gLineChart: segmentationData3">
+        </div>
+
+        <div class="report" data-bind="retention: data">
+        </div>
+      </div>
+    </div>
+  <!-- /ko -->
+
 
   </section>
 </article>
