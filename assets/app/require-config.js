@@ -6,6 +6,7 @@ require.config({
         'plugins' : '../vendor/durandal/plugins',
         'text': '../vendor/require/text',
         'promise': '../vendor/Promise',
+        'md5': '../vendor/md5.min',
         'moment': '../vendor/moment-with-locales.min',
         'moment-timezone': '../vendor/moment-timezone-with-data.min',
         'base64PolyFill' : '../vendor/base64.min',
